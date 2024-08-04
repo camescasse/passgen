@@ -1,0 +1,38 @@
+import PasswordOptions from '../models/passwordOptions';
+
+const generatePassword = (length: number, options: PasswordOptions = {}) => {
+  const defaultOptions: Required<PasswordOptions> = {
+    uppercase: true,
+    lowercase: true,
+    numbers: true,
+    symbols: true,
+  };
+
+  const config: Required<PasswordOptions> = { ...defaultOptions, ...options };
+
+  const uppercaseChars: string = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const lowercaseChars: string = 'abcdefghijklmnopqrstuvwxyz';
+  const numberChars: string = '0123456789';
+  const symbolChars: string = '!@#$%^&*()_+-=[]{};:,./<>?';
+
+  let chars: string = '';
+
+  if (config.uppercase) chars += uppercaseChars;
+  if (config.lowercase) chars += lowercaseChars;
+  if (config.numbers) chars += numberChars;
+  if (config.symbols) chars += symbolChars;
+
+  if (chars === '') {
+    console.log('At least one character type must be selected');
+  }
+
+  let password: string = '';
+  for (let i: number = 0; i < length; i++) {
+    const randomIndex: number = Math.floor(Math.random() * chars.length);
+    password += chars[randomIndex];
+  }
+
+  return password;
+};
+
+export default generatePassword;
