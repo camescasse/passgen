@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "dev": "pnpm ts-node src/app.ts"
+    "dev": "pnpm nodemon src/app.ts"
   },
   "keywords": [],
   "author": "",
