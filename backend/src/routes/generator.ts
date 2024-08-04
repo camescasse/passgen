@@ -2,6 +2,8 @@ import { Router } from 'express';
 
 const router = Router();
 
-router.post('/generator', async (req, res) => {});
+router.post('/', async (req, res) => {
+  res.send('works');
+});
 
 export default router;
