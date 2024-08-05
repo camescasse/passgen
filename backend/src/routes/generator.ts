@@ -1,9 +1,28 @@
 import { Router } from 'express';
+import { PasswordOptions, validatePasswordOptions } from '../models/passwordOptions';
+import generatePassword from '../services/generatePassword';
 
 const router = Router();
 
 router.post('/', async (req, res) => {
-  res.send('works');
+  const { error } = validatePasswordOptions(req.body);
+  if (error) return res.status(400).send(error.details[0].message);
+
+  const options: PasswordOptions = {
+    lowercase: req.body.lowercase,
+    uppercase: req.body.uppercase,
+    numbers: req.body.numbers,
+    symbols: req.body.symbols,
+  };
+
+  const password = generatePassword(req.body.length, options);
+
+  if (!password)
+    return res
+      .status(400)
+      .send('At least one option must be true. Options are: lowercase, uppercase, numbers, symbols');
+
+  res.send(password);
 });
 
 export default router;
