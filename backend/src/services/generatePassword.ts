@@ -1,4 +1,4 @@
-import PasswordOptions from '../models/passwordOptions';
+import { PasswordOptions } from '../models/passwordOptions';
 
 const generatePassword = (length: number, options: PasswordOptions = {}) => {
   const defaultOptions: Required<PasswordOptions> = {
@@ -23,7 +23,7 @@ const generatePassword = (length: number, options: PasswordOptions = {}) => {
   if (config.symbols) chars += symbolChars;
 
   if (chars === '') {
-    console.log('At least one character type must be selected');
+    return;
   }
 
   let password: string = '';
