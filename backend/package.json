@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "typescript": "^5.5.4",
     "cors": "^2.8.5",
     "express": "^4.19.2",
     "express-async-errors": "^3.1.1",
@@ -26,8 +27,7 @@
     "@types/morgan": "^1.9.9",
     "@types/node": "^22.1.0",
     "nodemon": "^3.1.4",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.5.4"
+    "ts-node": "^10.9.2"
   },
   "engines": {
   "node": "20.x"
