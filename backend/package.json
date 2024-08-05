@@ -6,7 +6,6 @@
   "scripts": {
     "start": "node dist/app.js",
     "build": "tsc",
-    "vercel-build": "tsc",
     "dev": "nodemon src/app.ts"
   },
   "keywords": [],

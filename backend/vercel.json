@@ -1,19 +1,11 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "dist/app.js",
-      "use": "@vercel/node"
-    }
-  ],
+  "buildCommand": "pnpm build",
+  "outputDirectory": "dist",
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "dist/app.js"
-    },
-    {
       "src": "/(.*)",
-      "dest": "dist/app.js"
+      "dest": "dist/index.js"
     }
   ]
 }
