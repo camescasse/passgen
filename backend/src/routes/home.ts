@@ -1,8 +1,8 @@
-import Router from 'express';
+import Router, { Request, Response } from 'express';
 
 const router = Router();
 
-router.get('/', async (req, res) => {
+router.get('/', async (req: Request, res: Response) => {
   res.send('Thanks for using Passgen!');
 });
 

@@ -1,10 +1,10 @@
-import { Router } from 'express';
+import Router, { Request, Response } from 'express';
 import { PasswordOptions, validatePasswordOptions } from '../models/passwordOptions';
 import generatePassword from '../services/generatePassword';
 
 const router = Router();
 
-router.post('/', async (req, res) => {
+router.post('/', async (req: Request, res: Response) => {
   const { error } = validatePasswordOptions(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
