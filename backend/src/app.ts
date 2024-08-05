@@ -9,3 +9,5 @@ if (process.env.NODE_ENV !== 'production') {
   const port = process.env.PORT || 3000;
   app.listen(port, () => logger.info(`Listening on port ${port}...`));
 }
+
+export default app;
