@@ -2,11 +2,11 @@
   "name": "passgen",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/app.js",
   "scripts": {
-    "start": "node ./dist/app.js",
+    "start": "node dist/app.js",
     "build": "tsc",
-    "dev": "pnpm nodemon ./src/app.ts"
+    "dev": "nodemon src/app.ts"
   },
   "keywords": [],
   "author": "",
