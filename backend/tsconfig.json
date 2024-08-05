@@ -2,7 +2,7 @@
     "compilerOptions": {
         "esModuleInterop": true,
         "outDir": "./dist",
-        "rootDir": "api",
+        "rootDir": "src",
         "allowJs": true,
         "target": "ES6",
         "module": "NodeNext",
@@ -12,6 +12,6 @@
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true
     },
-    "include": ["api/**/*"],
+    "include": ["src/**/*"],
     "exclude": ["node_modules", "**/*.spec.ts"]
 }
