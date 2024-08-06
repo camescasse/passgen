@@ -11,7 +11,7 @@ function routes(app: Express) {
   app.use(cors());
   app.use(helmet());
   app.use(morgan('tiny'));
-  app.use('/', home);
+  app.use('/api', home);
   app.use('/api/generator', generator);
   app.use(error);
 }
