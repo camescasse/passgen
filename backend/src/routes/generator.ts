@@ -9,15 +9,16 @@ router.post('/', async (req: Request, res: Response) => {
   if (error) return res.status(400).send(error.details[0].message);
 
   const options: PasswordOptions = {
+    length: req.body.length,
     lowercase: req.body.lowercase,
     uppercase: req.body.uppercase,
     numbers: req.body.numbers,
     symbols: req.body.symbols,
   };
 
-  const password = generatePassword(req.body.length, options);
+  const password = generatePassword(options);
 
-  if (!password)
+  if (password === '')
     return res
       .status(400)
       .send('At least one option must be true. Options are: lowercase, uppercase, numbers, symbols');

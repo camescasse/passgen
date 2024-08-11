@@ -1,7 +1,8 @@
 import { PasswordOptions } from '../models/passwordOptions';
 
-const generatePassword = (length: number, options: PasswordOptions = {}) => {
+const generatePassword = (options: PasswordOptions) => {
   const defaultOptions: Required<PasswordOptions> = {
+    length: 8,
     uppercase: true,
     lowercase: true,
     numbers: true,
@@ -23,11 +24,11 @@ const generatePassword = (length: number, options: PasswordOptions = {}) => {
   if (config.symbols) chars += symbolChars;
 
   if (chars === '') {
-    return;
+    return '';
   }
 
   let password: string = '';
-  for (let i: number = 0; i < length; i++) {
+  for (let i: number = 0; i < config.length; i++) {
     const randomIndex: number = Math.floor(Math.random() * chars.length);
     password += chars[randomIndex];
   }

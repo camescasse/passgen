@@ -1,6 +1,7 @@
 import Joi from 'joi';
 
 interface PasswordOptions {
+  length?: number;
   uppercase?: boolean;
   lowercase?: boolean;
   numbers?: boolean;
