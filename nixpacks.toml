@@ -1,0 +1,12 @@
+[services]
+backend = "backend"
+frontend = "frontend"
+
+[phases]
+# Backend configuration
+backend.build = "pnpm install && pnpm run build"
+backend.start = "node dist/app.js"
+
+# Frontend configuration
+frontend.build = "pnpm install && pnpm run build"
+frontend.start = "pnpm run preview"
