@@ -1,11 +1,15 @@
+[project]
+name = "backend"
+root = "/backend"
+
 [phases.setup]
-   nixPkgs = ["nodejs", "pnpm"]
+nixPkgs = ["nodejs", "pnpm"]
 
-   [phases.install]
-   cmds = ["pnpm install"]
+[phases.install]
+cmds = ["pnpm install"]
 
-   [phases.build]
-   cmds = ["pnpm run build"]
+[phases.build]
+cmds = ["pnpm run build"]
 
-   [start]
-   cmd = "pnpm start"
+[start]
+cmd = "pnpm start"
