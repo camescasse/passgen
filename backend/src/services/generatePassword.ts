@@ -1,4 +1,4 @@
-import { PasswordOptions } from '../models/passwordOptions';
+import { PasswordOptions } from "../models/passwordOptions";
 
 const generatePassword = (options: PasswordOptions) => {
   const defaultOptions: Required<PasswordOptions> = {
@@ -11,23 +11,23 @@ const generatePassword = (options: PasswordOptions) => {
 
   const config: Required<PasswordOptions> = { ...defaultOptions, ...options };
 
-  const uppercaseChars: string = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  const lowercaseChars: string = 'abcdefghijklmnopqrstuvwxyz';
-  const numberChars: string = '0123456789';
-  const symbolChars: string = '!@#$%^&*()_+-=[]{};:,./<>?';
+  const uppercaseChars: string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  const lowercaseChars: string = "abcdefghijklmnopqrstuvwxyz";
+  const numberChars: string = "0123456789";
+  const symbolChars: string = "!@#$%^&*()_+-=[]{};:,./<>?";
 
-  let chars: string = '';
+  let chars: string = "";
 
   if (config.uppercase) chars += uppercaseChars;
   if (config.lowercase) chars += lowercaseChars;
   if (config.numbers) chars += numberChars;
   if (config.symbols) chars += symbolChars;
 
-  if (chars === '') {
-    return '';
+  if (chars === "") {
+    return "";
   }
 
-  let password: string = '';
+  let password: string = "";
   for (let i: number = 0; i < config.length; i++) {
     const randomIndex: number = Math.floor(Math.random() * chars.length);
     password += chars[randomIndex];

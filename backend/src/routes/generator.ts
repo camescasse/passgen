@@ -1,10 +1,13 @@
-import Router, { Request, Response } from 'express';
-import { PasswordOptions, validatePasswordOptions } from '../models/passwordOptions';
-import generatePassword from '../services/generatePassword';
+import Router, { Request, Response } from "express";
+import {
+  PasswordOptions,
+  validatePasswordOptions,
+} from "../models/passwordOptions";
+import generatePassword from "../services/generatePassword";
 
 const router = Router();
 
-router.post('/', async (req: Request, res: Response) => {
+router.post("/", async (req: Request, res: Response) => {
   const { error } = validatePasswordOptions(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
@@ -18,10 +21,12 @@ router.post('/', async (req: Request, res: Response) => {
 
   const password = generatePassword(options);
 
-  if (password === '')
+  if (password === "")
     return res
       .status(400)
-      .send('At least one option must be true. Options are: lowercase, uppercase, numbers, symbols');
+      .send(
+        "At least one option must be true. Options are: lowercase, uppercase, numbers, symbols",
+      );
 
   res.send(password);
 });

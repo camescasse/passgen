@@ -1,4 +1,4 @@
-import Joi from 'joi';
+import Joi from "joi";
 
 interface PasswordOptions {
   length?: number;
