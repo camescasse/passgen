@@ -12,8 +12,6 @@ This project was built using `pnpm` as the intended package manager, but should 
 
 The API is currently publicly hosted and free to use.
 
-[![Run in Hoppscotch](https://hopp.sh/badge-light.svg)](https://hopp.sh/r/rd6sMYgFx020)
-
 ```curl
 curl --request POST \
   --url https://passgen.camescasse.dev/api/generator \
