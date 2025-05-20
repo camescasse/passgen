@@ -14,6 +14,19 @@ The API is currently publicly hosted and free to use.
 
 [![Run in Hoppscotch](https://hopp.sh/badge-light.svg)](https://hopp.sh/r/rd6sMYgFx020)
 
+```curl
+curl --request POST \
+  --url https://passgen.camescasse.dev/api/generator \
+  --header 'content-type: application/json' \
+  --data '{
+  "length": 12,
+  "lowercase": true,
+  "uppercase": true,
+  "numbers": true,
+  "symbols": true
+}'
+```
+
 ### Run Locally
 
 Clone the project
@@ -56,4 +69,3 @@ To deploy this project run
   pnpm build
   pnpm start
 ```
-
