@@ -3,12 +3,12 @@ import { describe, expect, it } from "vitest";
 import server from "../../../app";
 import { PasswordOptions } from "../../../models/passwordOptions";
 
-describe("/api/generator", () => {
+describe("/generator", () => {
   describe("POST /", async () => {
     let options: PasswordOptions = {};
 
     const exec = () => {
-      return request(server).post("/api/generator").send(options);
+      return request(server).post("/generator").send(options);
     };
 
     it("should return 400 given invalid password parameters and valid length", async () => {

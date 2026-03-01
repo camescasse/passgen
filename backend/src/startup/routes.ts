@@ -7,8 +7,8 @@ import home from "../routes/home";
 function routes(app: Express) {
   app.use(json());
   app.use(morgan("tiny"));
-  app.use("/api", home);
-  app.use("/api/generator", generator);
+  app.use("/", home);
+  app.use("/generator", generator);
   app.use(error);
 }
 
