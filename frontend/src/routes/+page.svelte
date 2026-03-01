@@ -288,7 +288,7 @@
 		left: 0.75rem;
 		bottom: 0.4rem;
 		font-size: 0.75rem;
-		opacity: 0;
+		opacity: 0.55;
 		transition: opacity 120ms ease-in-out;
 	}
 
@@ -305,6 +305,12 @@
 
 	.password-output.blocked::after {
 		content: 'clipboard blocked';
+	}
+
+	@media (hover: none) {
+		.password-output::after {
+			opacity: 0.8;
+		}
 	}
 
 	.error {
