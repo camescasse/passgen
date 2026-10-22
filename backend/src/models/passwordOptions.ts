@@ -9,13 +9,13 @@ interface PasswordOptions {
 }
 
 function validatePasswordOptions(options: PasswordOptions) {
-  const schema = Joi.object({
+  const schema = Joi.object<PasswordOptions>({
     length: Joi.number().min(4).max(40).required(),
     uppercase: Joi.boolean(),
     lowercase: Joi.boolean(),
     numbers: Joi.boolean(),
     symbols: Joi.boolean(),
-  });
+  }).required();
 
   return schema.validate(options);
 }

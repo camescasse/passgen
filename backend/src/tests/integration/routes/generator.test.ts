@@ -46,5 +46,18 @@ describe("/generator", () => {
 
       expect(res.status).toBe(200);
     });
+
+    it("should use the default options given only a length", async () => {
+      const res = await request(server).post("/generator").send({ length: 16 });
+
+      expect(res.status).toBe(200);
+      expect(res.text).toHaveLength(16);
+    });
+
+    it("should return 400 given no body", async () => {
+      const res = await request(server).post("/generator");
+
+      expect(res.status).toBe(400);
+    });
   });
 });

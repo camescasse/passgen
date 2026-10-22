@@ -1,25 +1,15 @@
 import { Request, Response, Router } from "express";
-import {
-  PasswordOptions,
-  validatePasswordOptions,
-} from "../models/passwordOptions";
+import { validatePasswordOptions } from "../models/passwordOptions";
 import generatePassword from "../services/generatePassword";
 
 const router = Router();
 
 router.post("/", async (req: Request, res: Response) => {
-  const { error } = validatePasswordOptions(req.body);
+  const { error, value } = validatePasswordOptions(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
-  const options: PasswordOptions = {
-    length: req.body.length,
-    lowercase: req.body.lowercase,
-    uppercase: req.body.uppercase,
-    numbers: req.body.numbers,
-    symbols: req.body.symbols,
-  };
-
-  const password = generatePassword(options);
+  // value has only the options that the client sends. The defaults apply to the other options.
+  const password = generatePassword(value);
 
   if (password === "")
     return res
