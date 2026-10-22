@@ -1,3 +1,4 @@
+import { randomInt } from "node:crypto";
 import { PasswordOptions } from "../models/passwordOptions";
 
 const generatePassword = (options: PasswordOptions) => {
@@ -29,7 +30,7 @@ const generatePassword = (options: PasswordOptions) => {
 
   let password: string = "";
   for (let i: number = 0; i < config.length; i++) {
-    const randomIndex: number = Math.floor(Math.random() * chars.length);
+    const randomIndex: number = randomInt(chars.length);
     password += chars[randomIndex];
   }
 
