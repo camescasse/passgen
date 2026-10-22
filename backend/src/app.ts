@@ -4,8 +4,8 @@ import prod from "./startup/prod";
 import routes from "./startup/routes";
 
 const app = express();
-routes(app);
 prod(app);
+routes(app);
 
 const port = process.env.PORT || 3000;
 const server = app.listen(port, () =>
